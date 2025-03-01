@@ -96,6 +96,7 @@ class _cognition():
             contours = list(filter(lambda x: cv2.contourArea(x) > self.del_range, contours))#小さいの削除
             cv2.drawContours(self.image, contours, -1, color=(0, 0, 255), thickness=2)
             # for i in contours:
+            x,y = 0,0
             if len(contours) != 1:
                 while len(contours) != 1:
                     self.del_range -= 250
