@@ -6,10 +6,10 @@ from PIL import Image
 
 class get_color:
     def __init__(self) -> None:
-        self.file_name = "input.jpg"
-        self.del_range = 3500
+        self.file_name:str = "input.jpg"
+        self.del_range:any = 3500
         self.picam2 = picamera2.Picamera2()
-        self.trimming_range = [0, 360, 1919, 500]
+        self.trimming_range:list = [0, 360, 1919, 500]
 
         # self.lower_w = np.array([10,20,100])
         # self.upper_w = np.array([30,57,220])
@@ -160,14 +160,14 @@ class _cognition():
         self.y_data.append(y)
         self.color_data = self._mainloop()
         
-    def show_image(self):
+    def show_image(self) ->None:
         cv2.namedWindow("image", cv2.WINDOW_NORMAL)
 
         cv2.imshow("image",self.image)
         cv2.waitKey(0)
         cv2.destroyAllWindows()
-
-    def get_del_range(self):
+ 
+    def get_del_range(self) -> int:
         return self.del_range
 
     def _hantei(self,i) -> str:
