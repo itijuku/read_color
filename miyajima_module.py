@@ -9,6 +9,7 @@ class get_color:
         self.file_name = "input.jpg"
         self.del_range = 3500
         self.picam2 = picamera2.Picamera2()
+        self.trimming_range = [0, 360, 1919, 500]
 
         # self.lower_w = np.array([10,20,100])
         # self.upper_w = np.array([30,57,220])
@@ -39,7 +40,7 @@ class get_color:
         self.picam2.stop
         self.file = self.file_name
         im = Image.open(self.file_name)
-        im.crop((0, 340, 1919, 500)).save(self.file_name, quality=95)
+        im.crop((self.trimming_range[0], self.trimming_range[1], self.trimming_range[2], self.trimming_range[3])).save(self.file_name, quality=95)
         image = cv2.imread(self.file_name)
 
         return _cognition(image,self.del_range)
@@ -86,7 +87,7 @@ class _cognition():
         
         # maskdata = cv2.bitwise_or(mask_red, mask_blue)
         if self.del_range == "aut":
-            self.del_range = 0
+            self.del_range = 10000
             self.x_data = []
             self.y_data = []
             self.mask = cv2.bitwise_and(image,image, mask=mask_w)
@@ -97,7 +98,7 @@ class _cognition():
             # for i in contours:
             if len(contours) != 1:
                 while len(contours) != 1:
-                    self.del_range += 100
+                    self.del_range -= 250
                     self.x_data = []
                     self.y_data = []
                     self.mask = cv2.bitwise_and(image,image, mask=mask_w)
