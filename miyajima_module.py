@@ -4,7 +4,6 @@ import picamera2
 import time
 from PIL import Image
 
-
 class get_color:
     def __init__(self) -> None:
         self.file_name = "input.jpg"
@@ -40,7 +39,7 @@ class get_color:
         self.picam2.stop
         self.file = self.file_name
         im = Image.open(self.file_name)
-        im.crop((0, 450, 1919, 575)).save(self.file_name, quality=95)
+        im.crop((0, 340, 1919, 500)).save(self.file_name, quality=95)
         image = cv2.imread(self.file_name)
 
         return _cognition(image,self.del_range)
@@ -57,14 +56,14 @@ class _cognition():
 
         self.del_range = del_range
 
-        self.lower_w = np.array([5,5,100])
-        self.upper_w = np.array([30,60,220])
+        self.lower_w = np.array([5,5,95])
+        self.upper_w = np.array([30,65,220])
     
         self.lower_green = np.array([60,64,0])
         self.upper_green = np.array([90,255,255])
         
-        self.lower_y = np.array([20,90,0])
-        self.upper_y = np.array([45,255,255])
+        self.lower_y = np.array([17,80,0])
+        self.upper_y = np.array([50,255,255])
     
         self.lower_red1 = np.array([0,64,0])
         self.upper_red1 = np.array([2,255,255])
