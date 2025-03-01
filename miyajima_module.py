@@ -11,19 +11,18 @@ class get_color:
         self.picam2 = picamera2.Picamera2()
         self.trimming_range:list = [0, 360, 1919, 500]
 
-        # self.lower_w = np.array([10,20,100])
-        # self.upper_w = np.array([30,57,220])
-    
-        # self.lower_green = np.array([60,64,0])
-        # self.upper_green = np.array([90,255,255])
+        # self.lower_w = [5,5,95]
+        # self.upper_w = [30,65,220]
+        # self.lower_green = [60,64,0]
+        # self.upper_green = [90,255,255]
         
-        # self.lower_y = np.array([20,90,0])
-        # self.upper_y = np.array([45,255,255])
+        # self.lower_y = [17,80,0]
+        # self.upper_y = [50,255,255]
     
-        # self.lower_red1 = np.array([0,64,0])
-        # self.upper_red1 = np.array([2,255,255])
-        # self.lower_red2 = np.array([150,64,0])
-        # self.upper_red2 = np.array([179,255,255])
+        # self.lower_red1 = [0,64,0]
+        # self.upper_red1 = [2,255,255]
+        # self.lower_red2 = [150,64,0]
+        # self.upper_red2 = [179,255,255]
     
 
     def get_image(self):
