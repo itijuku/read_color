@@ -86,7 +86,7 @@ class _cognition():
         
         # maskdata = cv2.bitwise_or(mask_red, mask_blue)
         if self.del_range == "aut":
-            self.del_range = 10000
+            self.del_range = 20000
             self.x_data = []
             self.y_data = []
             self.mask = cv2.bitwise_and(image,image, mask=mask_w)
