@@ -107,7 +107,7 @@ class _cognition():
                     contours = list(filter(lambda x: cv2.contourArea(x) > self.del_range, contours))#小さいの削除
                     cv2.drawContours(self.image, contours, -1, color=(0, 0, 255), thickness=2)
                 self.len_block.append(len(contours))
-                assert (len(contours) == 1),f"ホワイトが認識されていない、または複数認識されています。数:{len(contours)}個"
+                assert (len(contours) == 1),f"白が認識されていない、または複数認識されています。数:{len(contours)}個"
                 x, y, w, h = cv2.boundingRect(contours[0])
         else:   
             self.x_data = []
